@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://ccf88v2u2qkf8"]
+
+[node name="FarmSlot" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GroundSprite" type="Sprite2D" parent="."]
+
+[node name="PlantLayer" type="Node2D" parent="."]
+
+[node name="PlantSprite" type="Sprite2D" parent="PlantLayer"]
+
+[node name="Highlight" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HoverUI" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
