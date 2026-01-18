@@ -4,7 +4,8 @@ extends Control
 @onready var plant_sprite: AnimatedSprite2D = $PlantSprite
 @onready var water_fx: AnimatedSprite2D = $WaterFX
 @onready var action_bar: Control = $ActionBar
-
+@onready var info_panel: PanelContainer = $InfoPanel
+@onready var info_label: Label = $InfoPanel/InfoLabel
 
 enum SoilState {
 	EMPTY,
@@ -18,7 +19,27 @@ var soil_state := SoilState.EMPTY
 var plant_stage := 0
 var max_stage := 5
 
+func update_plant_info():
+	var status_text = ""
+	var time_text = ""
 
+	match soil_state:
+		SoilState.EMPTY:
+			status_text = "状态：空土地"
+			time_text = "请先播种"
+		SoilState.PLANTED, SoilState.WATERED:
+			status_text = "作物：神秘种子 (阶段 %d/%d)" % [plant_stage, max_stage]
+			var stages_left = max_stage - plant_stage
+			if stages_left > 0:
+				time_text = "距离成熟还需：%d 次成长" % stages_left
+			else:
+				time_text = "即将成熟..."
+		SoilState.READY:
+			status_text = "状态：已成熟！"
+			time_text = "可以收割了"
+
+	info_label.text = status_text + "\n" + time_text
+	
 func sow():
 	if soil_state != SoilState.EMPTY:
 		return
@@ -29,12 +50,12 @@ func sow():
 	$PlantSprite.visible = true
 	$PlantSprite.play("plant")
 
-	# 播完后显示植物
-	await $SoilSprite.animation_finished
+	
 
 	plant_stage = 0
 	$SoilSprite.visible = true
 	$SoilSprite.frame = plant_stage
+	update_plant_info()
 
 func water():
 	if soil_state != SoilState.PLANTED:
@@ -53,17 +74,24 @@ func water():
 	_grow()
 
 func _grow():
+	# 1. 切换显示：隐藏播种动画，显示静止的植物
 	$PlantSprite.visible = false
 	$SoilSprite.visible = true
+	
+	# 2. 判断是否已经长满了
 	if plant_stage >= max_stage:
 		soil_state = SoilState.READY
-		return
-
-	plant_stage += 1
-	$SoilSprite.frame = plant_stage
-
-	if plant_stage == max_stage:
-		soil_state = SoilState.READY
+	else:
+		# 3. 没长满：让它长一级
+		plant_stage += 1
+		$SoilSprite.frame = plant_stage # 切换图片
+		
+		# 4. 刚长完这一级，检查一下是不是刚好熟了
+		if plant_stage == max_stage:
+			soil_state = SoilState.READY
+	
+	# 5. 最后统一更新面板文字
+	update_plant_info()
 
 func _ready():
 		# ===== 初始化显示状态（🔥关键）=====
@@ -98,6 +126,7 @@ func _ready():
 
 	# 透明背景
 	get_viewport().transparent_bg = true
+	update_plant_info()
 
 func _on_sow_pressed():
 	sow()

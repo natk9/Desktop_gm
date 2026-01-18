@@ -3,6 +3,8 @@ extends Control
 @onready var highlight: Sprite2D = $"../Highlight"
 @onready var action_bar: Control = $"../ActionBar"
 @onready var close_timer: Timer = $Timer
+@onready var info_panel: PanelContainer = $"../InfoPanel"
+@onready var root: Control = $".."
 
 var dragging := false
 var drag_offset := Vector2i.ZERO
@@ -23,6 +25,9 @@ func _gui_input(event):
 		if not hovering:
 			hovering = true
 			highlight.visible = true
+			
+			root.update_plant_info()
+			info_panel.visible = true
 
 		# 拖拽窗口
 		if dragging:
@@ -68,6 +73,8 @@ func _close_action_bar():
 func _notification(what):
 	if what == NOTIFICATION_MOUSE_EXIT:
 		hovering = false
+		
+		info_panel.visible = false
 
 		# 功能栏打开时 → 开始 2 秒倒计时
 		if action_bar.visible:

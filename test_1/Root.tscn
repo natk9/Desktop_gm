@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://gx4thj8614eu"]
+[gd_scene load_steps=28 format=3 uid="uid://gx4thj8614eu"]
 
 [ext_resource type="Script" uid="uid://c7m2i7ixxx76m" path="res://root1.gd" id="1_3ipfy"]
 [ext_resource type="Script" uid="uid://b7ujq20h1vbtv" path="res://action_bar.gd" id="2_f5i44"]
@@ -153,6 +153,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n0g3p"]
+bg_color = Color(0.07058824, 0.07058824, 0.07058824, 0.5882353)
+
 [node name="Root" type="Control"]
 layout_mode = 3
 anchors_preset = 0
@@ -306,3 +309,14 @@ position = Vector2(206, 116)
 scale = Vector2(0.68128616, 0.7320659)
 sprite_frames = SubResource("SpriteFrames_7gikw")
 animation = &"water"
+
+[node name="InfoPanel" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_n0g3p")
+
+[node name="InfoLabel" type="Label" parent="InfoPanel"]
+layout_mode = 2
+horizontal_alignment = 1
