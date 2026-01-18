@@ -1,10 +1,11 @@
-extends Node2D
+extends Control
 
 
 
 	
 func _ready():
-
+	var win := get_window()
+	win.content_scale_factor = 1.0
 	# 无边框
 	DisplayServer.window_set_flag(
 		DisplayServer.WINDOW_FLAG_BORDERLESS, true
