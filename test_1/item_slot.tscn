@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://dutwutn6co8dh"]
+
+[ext_resource type="Script" uid="uid://ybrij73ft0n1" path="res://ItemSlot.gd" id="1_n6cxc"]
+[ext_resource type="Texture2D" uid="uid://0f2t1lf8r2ru" path="res://png/icon.svg" id="3_i83bl"]
+
+[node name="ItemSlot" type="MarginContainer"]
+z_index = 5
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_n6cxc")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+
+[node name="CountLabel" type="Label" parent="."]
+z_index = 2
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 16
+text = "99"
+horizontal_alignment = 2
+
+[node name="Icon" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(42, 42)
+layout_mode = 2
+texture = ExtResource("3_i83bl")
+expand_mode = 1

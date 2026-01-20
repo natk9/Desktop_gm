@@ -1,0 +1,81 @@
+[gd_scene load_steps=3 format=3 uid="uid://dy3xiwkkyregw"]
+
+[ext_resource type="Script" uid="uid://byhcu6ayyvjxh" path="res://inventory/inventory_ui.gd" id="1_5v8q7"]
+[ext_resource type="PackedScene" uid="uid://dutwutn6co8dh" path="res://item_slot.tscn" id="2_gf3dx"]
+
+[node name="InventoryUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_5v8q7")
+slot_scene = ExtResource("2_gf3dx")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(3.3516107, 4.055309)
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 3.580368
+offset_top = 5.178397
+offset_right = 137.58037
+offset_bottom = 139.17839
+scale = Vector2(0.2425736, 0.2425736)
+
+[node name="GridContainer" type="GridContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="ItemSlot" parent="Panel/MarginContainer/GridContainer" instance=ExtResource("2_gf3dx")]
+layout_mode = 2
+
+[node name="ItemSlot2" parent="Panel/MarginContainer/GridContainer" instance=ExtResource("2_gf3dx")]
+layout_mode = 2
+
+[node name="ItemSlot3" parent="Panel/MarginContainer/GridContainer" instance=ExtResource("2_gf3dx")]
+layout_mode = 2
+
+[node name="ItemSlot4" parent="Panel/MarginContainer/GridContainer" instance=ExtResource("2_gf3dx")]
+layout_mode = 2
+
+[node name="ItemSlot5" parent="Panel/MarginContainer/GridContainer" instance=ExtResource("2_gf3dx")]
+layout_mode = 2
+
+[node name="ItemSlot6" parent="Panel/MarginContainer/GridContainer" instance=ExtResource("2_gf3dx")]
+layout_mode = 2
+
+[node name="ItemSlot7" parent="Panel/MarginContainer/GridContainer" instance=ExtResource("2_gf3dx")]
+layout_mode = 2
+
+[node name="ItemSlot8" parent="Panel/MarginContainer/GridContainer" instance=ExtResource("2_gf3dx")]
+layout_mode = 2
+
+[node name="ItemSlot9" parent="Panel/MarginContainer/GridContainer" instance=ExtResource("2_gf3dx")]
+layout_mode = 2
+
+[node name="TitleBar" type="Panel" parent="Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Title" type="Label" parent="Panel/TitleBar"]
+z_index = 1
+layout_mode = 0
+offset_left = 15.280341
+offset_right = 55.280342
+offset_bottom = 24.0
+scale = Vector2(0.2509501, 0.22346663)
+text = "背包"
+
+[node name="CloseButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 116.0
+offset_top = 5.0
+offset_right = 252.0
+offset_bottom = 141.0
+scale = Vector2(0.09685002, 0.096120134)
+theme_override_font_sizes/font_size = 92
+text = "X"

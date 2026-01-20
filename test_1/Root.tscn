@@ -1,13 +1,17 @@
-[gd_scene load_steps=28 format=3 uid="uid://gx4thj8614eu"]
+[gd_scene load_steps=32 format=3 uid="uid://gx4thj8614eu"]
 
 [ext_resource type="Script" uid="uid://c7m2i7ixxx76m" path="res://root1.gd" id="1_3ipfy"]
+[ext_resource type="Resource" uid="uid://b1043ojpjuj0f" path="res://items/seed.tres" id="2_8hd61"]
 [ext_resource type="Script" uid="uid://b7ujq20h1vbtv" path="res://action_bar.gd" id="2_f5i44"]
-[ext_resource type="Texture2D" uid="uid://bv625648yxutt" path="res://Base-01.png" id="2_g0d6c"]
-[ext_resource type="Texture2D" uid="uid://cogq2mxgg2gsq" path="res://tudi.png" id="3_f5i44"]
-[ext_resource type="Texture2D" uid="uid://cq4lfy7i7ou0a" path="res://tud.2i.png" id="4_n0g3p"]
+[ext_resource type="Texture2D" uid="uid://bv625648yxutt" path="res://png/Base-01.png" id="2_g0d6c"]
+[ext_resource type="Texture2D" uid="uid://cogq2mxgg2gsq" path="res://png/tudi.png" id="3_f5i44"]
+[ext_resource type="Resource" uid="uid://c3xrlvacdatmw" path="res://items/crop.tres" id="3_hbe7s"]
+[ext_resource type="Texture2D" uid="uid://cq4lfy7i7ou0a" path="res://png/tud.2i.png" id="4_n0g3p"]
 [ext_resource type="Script" uid="uid://cbv75mixky62k" path="res://input_area.gd" id="5_2qvp8"]
-[ext_resource type="Texture2D" uid="uid://bei6egls7vos0" path="res://plant1-Sheet.png" id="6_g0d6c"]
-[ext_resource type="Texture2D" uid="uid://bnlfwxcxsfipi" path="res://plant1-Shee1t.png" id="8_n0g3p"]
+[ext_resource type="Texture2D" uid="uid://bei6egls7vos0" path="res://png/plant1-Sheet.png" id="6_g0d6c"]
+[ext_resource type="Texture2D" uid="uid://bnlfwxcxsfipi" path="res://png/plant1-Shee1t.png" id="8_n0g3p"]
+[ext_resource type="PackedScene" uid="uid://dy3xiwkkyregw" path="res://inventory_ui.tscn" id="11_hbe7s"]
+[ext_resource type="PackedScene" uid="uid://btbmx1qp0ccbd" path="res://inventory.tscn" id="12_g1ltr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kcyo3"]
 bg_color = Color(0.5705214, 0.4997144, 0.49735415, 0.4)
@@ -162,6 +166,8 @@ anchors_preset = 0
 offset_right = 397.0
 offset_bottom = 317.0
 script = ExtResource("1_3ipfy")
+seed_item = ExtResource("2_8hd61")
+crop_item = ExtResource("3_hbe7s")
 
 [node name="ActionBar" type="Control" parent="."]
 anchors_preset = 0
@@ -240,7 +246,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "浇水"
 
-[node name="Button4" type="Button" parent="ActionBar"]
+[node name="HarvestButton" type="Button" parent="ActionBar"]
 z_index = 9
 layout_mode = 1
 anchors_preset = -1
@@ -263,7 +269,7 @@ offset_right = 56.0
 offset_bottom = 80.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "移除"
+text = "收获"
 
 [node name="Visual" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -320,3 +326,12 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_n0g3p")
 [node name="InfoLabel" type="Label" parent="InfoPanel"]
 layout_mode = 2
 horizontal_alignment = 1
+
+[node name="InventoryUI" parent="." instance=ExtResource("11_hbe7s")]
+layout_mode = 0
+offset_left = 259.0
+offset_top = 231.0
+offset_right = 299.0
+offset_bottom = 271.0
+
+[node name="Inventory" parent="." instance=ExtResource("12_g1ltr")]

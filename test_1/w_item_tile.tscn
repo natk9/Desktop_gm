@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://biyon07e0gsyw"]
+
+[ext_resource type="Texture2D" uid="uid://0f2t1lf8r2ru" path="res://png/icon.svg" id="1_re42w"]
+[ext_resource type="Script" uid="uid://cc4cvht1wskqw" path="res://w_item_tile.gd" id="1_ua2es"]
+
+[node name="w_item_tile" type="MarginContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.4040438, 0.4040438)
+script = ExtResource("1_ua2es")
+
+[node name="CountLabel" type="Label" parent="."]
+z_index = 2
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 16
+text = "99"
+horizontal_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(42, 42)
+layout_mode = 2
+texture = ExtResource("1_re42w")
+expand_mode = 1

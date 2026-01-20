@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://b1043ojpjuj0f"]
+
+[ext_resource type="Script" uid="uid://bbuudgitmj7bh" path="res://items/ItemDate.gd" id="1_m8yas"]
+[ext_resource type="Texture2D" uid="uid://0f2t1lf8r2ru" path="res://png/icon.svg" id="1_ogx5e"]
+
+[resource]
+script = ExtResource("1_m8yas")
+id = "seed"
+name = "种子"
+icon = ExtResource("1_ogx5e")
+metadata/_custom_type_script = "uid://bbuudgitmj7bh"
