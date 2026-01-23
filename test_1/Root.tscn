@@ -314,7 +314,7 @@ animation = &"plant"
 position = Vector2(206, 116)
 scale = Vector2(0.68128616, 0.7320659)
 sprite_frames = SubResource("SpriteFrames_7gikw")
-animation = &"water"
+animation = &"generate"
 
 [node name="InfoPanel" type="PanelContainer" parent="."]
 layout_mode = 0
