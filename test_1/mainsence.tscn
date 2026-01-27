@@ -1,0 +1,186 @@
+[gd_scene format=3 uid="uid://ccklpqj5u3wdh"]
+
+[ext_resource type="Script" uid="uid://jttje4vftili" path="res://GameManager.gd" id="1_l0wc1"]
+[ext_resource type="PackedScene" uid="uid://dedj3okmhmxgn" path="res://scenes/fishing_desktop.tscn" id="2_rjy88"]
+[ext_resource type="PackedScene" uid="uid://b2en1gq8g7xb4" path="res://alchemy_window.tscn" id="3_hy2l1"]
+[ext_resource type="Texture2D" uid="uid://cv7oofh88q3xk" path="res://png/ui_ds.png" id="3_uj010"]
+[ext_resource type="Texture2D" uid="uid://cb2tfou4vh7ak" path="res://png/map1.png" id="4_uj010"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjy88"]
+atlas = ExtResource("3_uj010")
+region = Rect2(189, 168, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hy2l1"]
+atlas = ExtResource("3_uj010")
+region = Rect2(189, 168, 30, 30)
+
+[node name="Main" type="Node2D" unique_id=554528977]
+script = ExtResource("1_l0wc1")
+
+[node name="SceneRoot" type="Node" parent="." unique_id=1925621411]
+
+[node name="FishingDesktop" parent="SceneRoot" unique_id=2023604047 instance=ExtResource("2_rjy88")]
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=997531852]
+
+[node name="AlchemyWindow" parent="UI" unique_id=616709190 instance=ExtResource("3_hy2l1")]
+
+[node name="MapPanel" type="Control" parent="UI" unique_id=3159500]
+layout_mode = 3
+anchors_preset = 0
+offset_top = -1.0
+offset_right = 40.0
+offset_bottom = 39.0
+
+[node name="MapImage" type="TextureRect" parent="UI/MapPanel" unique_id=309862625]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 5.0
+offset_right = 384.0
+offset_bottom = 377.0
+texture = ExtResource("4_uj010")
+
+[node name="TeleportPoints" type="Control" parent="UI/MapPanel" unique_id=1685793479]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Point_A" type="TextureButton" parent="UI/MapPanel/TeleportPoints" unique_id=67712625]
+z_index = 11
+layout_mode = 0
+offset_left = 94.0
+offset_top = 81.0
+offset_right = 134.0
+offset_bottom = 121.0
+scale = Vector2(0.6342796, 0.6728025)
+
+[node name="Point_B" type="TextureButton" parent="UI/MapPanel/TeleportPoints" unique_id=1165290216]
+z_index = 11
+layout_mode = 0
+offset_left = 162.0
+offset_top = 62.0
+offset_right = 202.0
+offset_bottom = 102.0
+scale = Vector2(0.5505254, 0.5515417)
+
+[node name="Point_C" type="TextureButton" parent="UI/MapPanel/TeleportPoints" unique_id=289562650]
+z_index = 11
+layout_mode = 0
+offset_left = 107.99999
+offset_top = 128.0
+offset_right = 148.0
+offset_bottom = 168.0
+scale = Vector2(0.5505254, 0.5515417)
+
+[node name="CloseButton" type="TextureButton" parent="UI/MapPanel" unique_id=487561916]
+z_index = 11
+layout_mode = 0
+offset_left = 285.0
+offset_top = 33.0
+offset_right = 325.0
+offset_bottom = 73.0
+scale = Vector2(0.4896296, 0.49489105)
+
+[node name="Label" type="Label" parent="UI/MapPanel/CloseButton" unique_id=1842228771]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "x"
+horizontal_alignment = 1
+
+[node name="FunctionBar" type="Control" parent="UI" unique_id=767205388]
+z_index = 20
+layout_mode = 3
+anchors_preset = 0
+offset_left = 31.0
+offset_top = 350.0
+offset_right = 390.0
+offset_bottom = 389.0
+
+[node name="Btn_Map" type="TextureButton" parent="UI/FunctionBar" unique_id=1799475051]
+z_index = 20
+texture_filter = 1
+layout_mode = 0
+offset_left = 248.0
+offset_top = 3.0
+offset_right = 278.0
+offset_bottom = 34.0
+texture_normal = SubResource("AtlasTexture_rjy88")
+
+[node name="Label" type="Label" parent="UI/FunctionBar/Btn_Map" unique_id=1025383630]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 28.0
+offset_bottom = 27.0
+text = "M"
+horizontal_alignment = 1
+
+[node name="Btn_Alchemy" type="TextureButton" parent="UI/FunctionBar" unique_id=138378045]
+z_index = 20
+texture_filter = 1
+layout_mode = 0
+offset_left = 292.0
+offset_top = 3.0
+offset_right = 322.0
+offset_bottom = 33.0
+texture_normal = SubResource("AtlasTexture_hy2l1")
+
+[node name="Label2" type="Label" parent="UI/FunctionBar/Btn_Alchemy" unique_id=1294163181]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 28.0
+offset_bottom = 27.0
+text = "L"
+horizontal_alignment = 1
+
+[node name="RewardPopup" type="NinePatchRect" parent="UI" unique_id=35487874]
+visible = false
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -84.0
+offset_right = 84.0
+offset_bottom = 84.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8717565, 0.5349455)
+size_flags_horizontal = 4
+texture = ExtResource("3_uj010")
+region_rect = Rect2(189, 168, 30, 30)
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="CloseButton3" type="TextureButton" parent="UI/RewardPopup" unique_id=1282079513]
+z_index = 11
+layout_mode = 0
+offset_left = 140.00002
+offset_top = 12.0
+offset_right = 180.00002
+offset_bottom = 52.0
+scale = Vector2(0.4896296, 0.49489105)
+
+[node name="Label" type="Label" parent="UI/RewardPopup/CloseButton3" unique_id=222631188]
+layout_mode = 0
+offset_left = -2.4504223
+offset_top = -1.5839844
+offset_right = 37.549576
+offset_bottom = 34.416016
+scale = Vector2(0.97243494, 1.4931645)
+theme_override_font_sizes/font_size = 26
+text = "x"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="UI/MapPanel/TeleportPoints/Point_A" to="." method="_on_point_a_pressed"]
+[connection signal="pressed" from="UI/MapPanel/TeleportPoints/Point_B" to="." method="_on_point_b_pressed"]
+[connection signal="pressed" from="UI/MapPanel/TeleportPoints/Point_C" to="." method="_on_point_c_pressed"]
+[connection signal="pressed" from="UI/MapPanel/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="UI/FunctionBar/Btn_Map" to="." method="toggle_map"]
+[connection signal="pressed" from="UI/FunctionBar/Btn_Alchemy" to="." method="toggle_alchemy"]

@@ -55,14 +55,14 @@ func _ready():
 
 	water_fx.visible = false
 	# 初始化窗口设置（保持你原有的设置）
-	var win := get_window()
-	win.content_scale_factor = 1.0
-	DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
-	DisplayServer.window_set_min_size(Vector2i(300, 300))
-	DisplayServer.window_set_max_size(Vector2i(300, 300))
-	var screen_size = DisplayServer.screen_get_size()
-	DisplayServer.window_set_position(screen_size - Vector2i(320, 360))
-	get_viewport().transparent_bg = true
+	#var win := get_window()
+	#win.content_scale_factor = 1.0
+	#DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
+	#DisplayServer.window_set_min_size(Vector2i(300, 300))
+	#DisplayServer.window_set_max_size(Vector2i(300, 300))
+	#var screen_size = DisplayServer.screen_get_size()
+	#DisplayServer.window_set_position(screen_size - Vector2i(320, 360))
+	#get_viewport().transparent_bg = true
 
 	# 绑定按钮信号
 	action_bar.harvest_pressed.connect(_on_harvest_pressed)

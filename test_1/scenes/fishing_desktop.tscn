@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dedj3okmhmxgn"]
+[gd_scene format=3 uid="uid://dedj3okmhmxgn"]
 
 [ext_resource type="Script" uid="uid://c78famivqjsu" path="res://fishing_desktop.gd" id="1_pndyo"]
 [ext_resource type="Texture2D" uid="uid://dt8swl846iwye" path="res://png/diaoyu-Sheet.png" id="2_4htah"]
@@ -176,25 +176,25 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6gg7i"]
 size = Vector2(78, 43)
 
-[node name="FishingDesktop" type="Node2D"]
+[node name="FishingDesktop" type="Node2D" unique_id=765183029]
 script = ExtResource("1_pndyo")
 
-[node name="SceneSprite" type="Sprite2D" parent="."]
+[node name="SceneSprite" type="Sprite2D" parent="." unique_id=1605175633]
 texture_filter = 1
 position = Vector2(198, 213)
 texture = ExtResource("2_6gg7i")
 
-[node name="Player" type="Node2D" parent="."]
+[node name="Player" type="Node2D" parent="." unique_id=175223370]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=925524994]
 texture_filter = 1
 position = Vector2(198, 213)
 sprite_frames = SubResource("SpriteFrames_pndyo")
 animation = &"reel_success"
 
-[node name="ClickArea" type="Area2D" parent="Player"]
+[node name="ClickArea" type="Area2D" parent="Player" unique_id=850961152]
 z_index = 5
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/ClickArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/ClickArea" unique_id=1275836529]
 position = Vector2(164, 194)
 shape = SubResource("RectangleShape2D_6gg7i")

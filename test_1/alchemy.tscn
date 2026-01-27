@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dkkly7g251yif"]
+
+[ext_resource type="Script" uid="uid://55ejfa5ekanf" path="res://alchemy.gd" id="1_7dq4v"]
+[ext_resource type="Texture2D" uid="uid://creit02gpnl2b" path="res://png/lianj5.png" id="1_klkfd"]
+
+[node name="Alchemy" type="Control" unique_id=1732583719]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7dq4v")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2083000894]
+texture_filter = 1
+position = Vector2(201, 242)
+scale = Vector2(0.76860726, 0.76860726)
+texture = ExtResource("1_klkfd")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://gx4thj8614eu"]
+[gd_scene format=3 uid="uid://gx4thj8614eu"]
 
 [ext_resource type="Script" uid="uid://c7m2i7ixxx76m" path="res://root1.gd" id="1_3ipfy"]
 [ext_resource type="Resource" uid="uid://b1043ojpjuj0f" path="res://items/seed.tres" id="2_8hd61"]
@@ -160,7 +160,7 @@ animations = [{
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n0g3p"]
 bg_color = Color(0.07058824, 0.07058824, 0.07058824, 0.5882353)
 
-[node name="Root" type="Control"]
+[node name="Root" type="Control" unique_id=965876175]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 397.0
@@ -169,7 +169,7 @@ script = ExtResource("1_3ipfy")
 seed_item = ExtResource("2_8hd61")
 crop_item = ExtResource("3_hbe7s")
 
-[node name="ActionBar" type="Control" parent="."]
+[node name="ActionBar" type="Control" parent="." unique_id=1510093479]
 anchors_preset = 0
 offset_left = 292.0
 offset_top = 111.0
@@ -178,7 +178,7 @@ offset_bottom = 151.0
 theme = SubResource("Theme_nrxis")
 script = ExtResource("2_f5i44")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="ActionBar"]
+[node name="NinePatchRect" type="NinePatchRect" parent="ActionBar" unique_id=1521743043]
 z_index = 5
 layout_mode = 0
 offset_left = -25.0
@@ -195,7 +195,7 @@ patch_margin_bottom = 4
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 
-[node name="SowButton" type="Button" parent="ActionBar"]
+[node name="SowButton" type="Button" parent="ActionBar" unique_id=1926622915]
 z_index = 9
 layout_mode = 1
 anchors_preset = -1
@@ -207,7 +207,7 @@ offset_bottom = 4.0
 grow_horizontal = 2
 scale = Vector2(2.3080828, 1.0219156)
 
-[node name="Label" type="Label" parent="ActionBar"]
+[node name="Label" type="Label" parent="ActionBar" unique_id=1757090580]
 z_index = 9
 texture_filter = 1
 layout_mode = 1
@@ -221,7 +221,7 @@ grow_vertical = 2
 theme_override_constants/shadow_offset_y = 5
 text = "播种"
 
-[node name="WaterButton" type="Button" parent="ActionBar"]
+[node name="WaterButton" type="Button" parent="ActionBar" unique_id=883465677]
 z_index = 9
 layout_mode = 1
 anchors_preset = -1
@@ -233,7 +233,7 @@ offset_bottom = 45.0
 grow_horizontal = 2
 scale = Vector2(2.3080828, 1.0219156)
 
-[node name="Label2" type="Label" parent="ActionBar"]
+[node name="Label2" type="Label" parent="ActionBar" unique_id=604135907]
 z_index = 9
 texture_filter = 1
 layout_mode = 1
@@ -246,7 +246,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "浇水"
 
-[node name="HarvestButton" type="Button" parent="ActionBar"]
+[node name="HarvestButton" type="Button" parent="ActionBar" unique_id=1441800572]
 z_index = 9
 layout_mode = 1
 anchors_preset = -1
@@ -258,7 +258,7 @@ offset_bottom = 83.0
 grow_horizontal = 2
 scale = Vector2(2.3080828, 1.0219156)
 
-[node name="Label3" type="Label" parent="ActionBar"]
+[node name="Label3" type="Label" parent="ActionBar" unique_id=979622646]
 z_index = 9
 texture_filter = 1
 layout_mode = 1
@@ -271,20 +271,20 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "收获"
 
-[node name="Visual" type="Sprite2D" parent="."]
+[node name="Visual" type="Sprite2D" parent="." unique_id=2111002695]
 texture_filter = 1
 position = Vector2(200, 235)
 scale = Vector2(4, 4)
 texture = ExtResource("3_f5i44")
 
-[node name="Highlight" type="Sprite2D" parent="."]
+[node name="Highlight" type="Sprite2D" parent="." unique_id=247313561]
 visible = false
 texture_filter = 1
 position = Vector2(200, 236)
 scale = Vector2(3.9881318, 4)
 texture = ExtResource("4_n0g3p")
 
-[node name="InputArea" type="Control" parent="."]
+[node name="InputArea" type="Control" parent="." unique_id=1157589349]
 z_index = 8
 anchors_preset = 0
 offset_left = 103.0
@@ -294,44 +294,44 @@ offset_bottom = 157.0
 scale = Vector2(4.9755273, 3.4989188)
 script = ExtResource("5_2qvp8")
 
-[node name="Timer" type="Timer" parent="InputArea"]
+[node name="Timer" type="Timer" parent="InputArea" unique_id=2122200791]
 wait_time = 2.0
 one_shot = true
 
-[node name="SoilSprite" type="AnimatedSprite2D" parent="."]
+[node name="SoilSprite" type="AnimatedSprite2D" parent="." unique_id=515740324]
 position = Vector2(206, 116)
 scale = Vector2(0.68128616, 0.7320659)
 sprite_frames = SubResource("SpriteFrames_7gikw")
 animation = &"generate"
 
-[node name="PlantSprite" type="AnimatedSprite2D" parent="."]
+[node name="PlantSprite" type="AnimatedSprite2D" parent="." unique_id=658307051]
 position = Vector2(206, 116)
 scale = Vector2(0.68128616, 0.7320659)
 sprite_frames = SubResource("SpriteFrames_7gikw")
 animation = &"plant"
 
-[node name="WaterFX" type="AnimatedSprite2D" parent="."]
+[node name="WaterFX" type="AnimatedSprite2D" parent="." unique_id=767854334]
 position = Vector2(206, 116)
 scale = Vector2(0.68128616, 0.7320659)
 sprite_frames = SubResource("SpriteFrames_7gikw")
 animation = &"generate"
 
-[node name="InfoPanel" type="PanelContainer" parent="."]
+[node name="InfoPanel" type="PanelContainer" parent="." unique_id=1851412779]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_n0g3p")
 
-[node name="InfoLabel" type="Label" parent="InfoPanel"]
+[node name="InfoLabel" type="Label" parent="InfoPanel" unique_id=1815876973]
 layout_mode = 2
 horizontal_alignment = 1
 
-[node name="InventoryUI" parent="." instance=ExtResource("11_hbe7s")]
+[node name="InventoryUI" parent="." unique_id=2129682941 instance=ExtResource("11_hbe7s")]
 layout_mode = 0
 offset_left = 259.0
 offset_top = 231.0
 offset_right = 299.0
 offset_bottom = 271.0
 
-[node name="Inventory" parent="." instance=ExtResource("12_g1ltr")]
+[node name="Inventory" parent="." unique_id=1638660709 instance=ExtResource("12_g1ltr")]

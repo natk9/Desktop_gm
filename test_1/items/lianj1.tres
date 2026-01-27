@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="AlchemyRecipe" format=3 uid="uid://bp0oivu6jy16n"]
+
+[ext_resource type="Script" uid="uid://qslotxequowu" path="res://items/alchemy_recipe.gd" id="1_87bak"]
+
+[resource]
+script = ExtResource("1_87bak")
+metadata/_custom_type_script = "uid://qslotxequowu"

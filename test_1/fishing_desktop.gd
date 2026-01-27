@@ -4,6 +4,10 @@ extends Node
 @onready var click_area: Area2D = $Player/ClickArea
 
 
+var is_dragging := false
+var drag_start_mouse_pos := Vector2i.ZERO
+var drag_start_window_pos := Vector2i.ZERO
+
 enum FishingState {
 	IDLE,           # 待机
 	LIGHT_BITE,     # 轻微抖动
@@ -66,6 +70,26 @@ func _enter_idle():
 
 	_enter_light_bite()
 
+func _input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_RIGHT:
+			if event.pressed:
+				_start_window_drag()
+			else:
+				is_dragging = false
+
+	elif event is InputEventMouseMotion and is_dragging:
+		_update_window_drag()
+
+func _start_window_drag():
+	is_dragging = true
+	drag_start_mouse_pos = DisplayServer.mouse_get_position()
+	drag_start_window_pos = DisplayServer.window_get_position()
+
+func _update_window_drag():
+	var current_mouse_pos = DisplayServer.mouse_get_position()
+	var delta: Vector2i = current_mouse_pos - drag_start_mouse_pos
+	DisplayServer.window_set_position(drag_start_window_pos + delta)
 
 func _enter_light_bite():
 	state = FishingState.LIGHT_BITE
