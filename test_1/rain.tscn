@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://3ggyulv4vf0b"]
+
+[ext_resource type="Texture2D" uid="uid://oigwld8m8tww" path="res://png/raindrop.png" id="1_6wwtt"]
+[ext_resource type="Texture2D" uid="uid://duo2winp71ud7" path="res://png/rain1.png" id="2_vy4dc"]
+[ext_resource type="Texture2D" uid="uid://cr4grf4b62rre" path="res://png/rain2.png" id="3_baj4n"]
+[ext_resource type="Texture2D" uid="uid://bjjnxkfdi347w" path="res://png/rain_bloom.png" id="4_w4igq"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bo4iq"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(1.065, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(160, 1, 1)
+angle_min = -200.9
+angle_max = -200.9
+inherit_velocity_ratio = -1.125
+direction = Vector3(-0.275, 1, 0)
+spread = 0.0
+initial_velocity_min = 113.93
+initial_velocity_max = 147.78
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = -1.6093254e-05
+orbit_velocity_min = 0.98000014
+orbit_velocity_max = 1.1860001
+gravity = Vector3(0, 98, 0)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mfabu"]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7lbvu"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(160, 100, 1)
+gravity = Vector3(0, 0, 0)
+scale_max = 1.5
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+
+[node name="Rain" type="Node2D" unique_id=1001194947]
+
+[node name="RainParticles" type="GPUParticles2D" parent="." unique_id=538745345]
+visible = false
+texture_filter = 1
+position = Vector2(172.60313, -45.15781)
+scale = Vector2(2.6222184, 1.837062)
+amount = 299
+sub_emitter = NodePath(".")
+texture = ExtResource("1_6wwtt")
+lifetime = 5.0
+process_material = SubResource("ParticleProcessMaterial_bo4iq")
+
+[node name="RainParticles2" type="GPUParticles2D" parent="." unique_id=2029437937]
+z_index = 1
+texture_filter = 1
+position = Vector2(505.9827, -69.01274)
+scale = Vector2(8.260311, 1.837062)
+amount = 100
+sub_emitter = NodePath(".")
+texture = ExtResource("2_vy4dc")
+lifetime = 5.0
+speed_scale = 4.0
+process_material = SubResource("ParticleProcessMaterial_bo4iq")
+
+[node name="RainParticles3" type="GPUParticles2D" parent="." unique_id=546268092]
+z_index = 1
+texture_filter = 1
+position = Vector2(504.17563, -72.64499)
+scale = Vector2(8.260314, 1.837062)
+amount = 100
+sub_emitter = NodePath(".")
+texture = ExtResource("3_baj4n")
+lifetime = 5.0
+speed_scale = 4.0
+process_material = SubResource("ParticleProcessMaterial_bo4iq")
+
+[node name="RainBoom" type="GPUParticles2D" parent="." unique_id=338523886]
+self_modulate = Color(1, 1, 1, 0.84313726)
+z_index = 1
+material = SubResource("CanvasItemMaterial_mfabu")
+position = Vector2(462.6128, 385.0183)
+scale = Vector2(14.39666, 4.8310585)
+amount = 100
+sub_emitter = NodePath(".")
+texture = ExtResource("4_w4igq")
+lifetime = 0.6
+process_material = SubResource("ParticleProcessMaterial_7lbvu")

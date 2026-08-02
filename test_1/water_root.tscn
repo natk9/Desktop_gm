@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://ly7das8yst60"]
+
+[ext_resource type="Shader" uid="uid://0nteili8ilsd" path="res://watershape.gdshader" id="1_86mf4"]
+[ext_resource type="Shader" uid="uid://b8it15ijvkhde" path="res://subview.gdshader" id="2_owqjj"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7lbvu"]
+noise_type = 2
+seed = 16
+frequency = 0.5737
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_mfabu"]
+noise = SubResource("FastNoiseLite_7lbvu")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mfabu"]
+shader = ExtResource("1_86mf4")
+shader_parameter/threshold = 0.42000001995
+shader_parameter/edge_width = 0.0090000004275
+shader_parameter/water_alpha = 0.2000000095
+shader_parameter/edge_alpha = 0.514000024415
+shader_parameter/flow_noise = SubResource("NoiseTexture2D_mfabu")
+shader_parameter/flow_dir = Vector2(0.02, 0)
+shader_parameter/flow_speed = 0.2
+shader_parameter/edge_wobble = 0.03
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_mfabu"]
+noise_type = 3
+frequency = 0.0067
+fractal_weighted_strength = 0.21
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7lbvu"]
+width = 640
+height = 400
+noise = SubResource("FastNoiseLite_mfabu")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v7vyc"]
+shader = ExtResource("2_owqjj")
+shader_parameter/drop_strength = 0.008
+shader_parameter/min_speed = 1.5
+shader_parameter/max_speed = 2.5
+shader_parameter/drop_radius = 0.1
+shader_parameter/rain_intensity = 0.7
+shader_parameter/spawn_rate = 2.0
+shader_parameter/global_time_scale = 1.0
+shader_parameter/seed = 12345.0
+
+[node name="WaterRoot" type="Node2D" unique_id=1436733793]
+
+[node name="WaterShape" type="Sprite2D" parent="." unique_id=286551698]
+material = SubResource("ShaderMaterial_mfabu")
+position = Vector2(210.23465, 186.1505)
+scale = Vector2(4.131456, -4.152462)
+texture = SubResource("NoiseTexture2D_7lbvu")
+
+[node name="WaterSurface" type="Sprite2D" parent="." unique_id=1549747968]
+position = Vector2(-146.78113, -51.958443)
+scale = Vector2(-24.396788, 0.8511983)
+
+[node name="Waterw" type="Sprite2D" parent="." unique_id=1164498544]
+material = SubResource("ShaderMaterial_v7vyc")
+position = Vector2(578.76196, 484.9806)
+scale = Vector2(10.263656, 6.2445536)

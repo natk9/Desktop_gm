@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://v7gqbl34afe8"]
+
+[ext_resource type="Shader" uid="uid://b8it15ijvkhde" path="res://subview.gdshader" id="1_ovnox"]
+[ext_resource type="Texture2D" uid="uid://beyg8asakkse8" path="res://png/0b46f21fbe096b63d30f4b590d338744ebf8aca0.png" id="2_vmfih"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vmfih"]
+shader = ExtResource("1_ovnox")
+shader_parameter/drop_strength = 0.007
+shader_parameter/min_speed = 1.5
+shader_parameter/max_speed = 2.5
+shader_parameter/drop_radius = 0.1
+shader_parameter/rain_intensity = 0.7
+shader_parameter/spawn_rate = 2.0
+shader_parameter/global_time_scale = 1.0
+shader_parameter/seed = 13579.0
+
+[node name="Node2D" type="Node2D" unique_id=1656262503]
+texture_filter = 1
+
+[node name="T1" type="Sprite2D" parent="." unique_id=1836004827]
+material = SubResource("ShaderMaterial_vmfih")
+position = Vector2(325, 142)
+texture = ExtResource("2_vmfih")
